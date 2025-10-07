@@ -1,3 +1,5 @@
+const db = require('./db'); // connects to MySQL
+
 const express = require("express");
 const app = express();
 
