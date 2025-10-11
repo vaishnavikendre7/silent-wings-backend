@@ -1,14 +1,16 @@
+// db.js
 const mysql = require('mysql2');
+require('dotenv').config(); // load .env variables
 
 // Create connection
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',          // your MySQL username
-  password: 'Vaishu123',  // your MySQL password
-  database: 'silent_wings_db'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
 
-// Connect
+// Connect to MySQL
 db.connect((err) => {
   if (err) {
     console.log('Database connection failed:', err);
